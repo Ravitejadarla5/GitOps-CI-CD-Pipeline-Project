@@ -50,6 +50,18 @@ pipeline{
                 sh 'trivy fs . > trivy-fileSystem-report.txt'
             }
         }
+        stage ('Docker-Build') {
+            steps {
+                docker.withRegistry('', DOCKER_PASS){
+                    docker_image = docker.build "${IMAGE_NAME}"
+                }
+            }
+        }
+        // stage ('Trivy-Scan Image'){
+        //     steps {
+        //         sh "trivy ${IMAGE_NAME}:latest > trivy-image-report.txt"
+        //     }
+        // }
     }
 
 
