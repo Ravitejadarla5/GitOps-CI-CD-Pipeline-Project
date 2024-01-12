@@ -9,7 +9,7 @@ pipeline{
         APP_NAME                = 'reddit-clone-app'
         RELEASE                 = '1.0.0'
         DOCKER_USER             = 'ravitejadarla5'
-        DOCKER_PASS             = 'dockerhub'
+        DOCKER_PASS             = 'docker'
         IMAGE_NAME              = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG               = "${RELEASE}-${BUILD_NUMBER}"
         // JENKINS_API_TOKEN       = credenticals("JENKINS_API_TOKEN")
