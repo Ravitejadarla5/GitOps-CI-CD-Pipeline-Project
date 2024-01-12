@@ -1,4 +1,4 @@
-FROM node:19-apline3.15
+FROM node:19-alpine3.15
 WORKDIR /redit-clone
 COPY . /redit-clone
 RUN npm install
