@@ -61,7 +61,7 @@ pipeline{
         }
         stage ('Trivy-Scan Image'){
             steps {
-                sh "trivy ${IMAGE_NAME}:latest > trivy-image-report.txt"
+                sh "trivy image ${IMAGE_NAME}:latest > trivy-image-report.txt"
             }
         }
     }
