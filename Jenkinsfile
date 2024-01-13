@@ -59,11 +59,11 @@ pipeline{
                 }
             }
         }
-        // stage ('Trivy-Scan Image'){
-        //     steps {
-        //         sh "trivy ${IMAGE_NAME}:latest > trivy-image-report.txt"
-        //     }
-        // }
+        stage ('Trivy-Scan Image'){
+            steps {
+                sh "trivy ${IMAGE_NAME}:latest > trivy-image-report.txt"
+            }
+        }
     }
 
 
