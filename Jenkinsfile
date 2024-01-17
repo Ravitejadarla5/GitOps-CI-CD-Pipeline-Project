@@ -69,7 +69,7 @@ pipeline{
                 script {
                     docker.withRegistry('', DOCKER_PASS) {
                         docker_image.push("${IMAGE_TAG}")
-                        docker_image.push('latest')
+                        // docker_image.push('latest')
                     }
                 }
             }
@@ -82,6 +82,11 @@ pipeline{
                 }
             }
         }
+        // stage ('Trigger Manifest-Update'){
+        //     steps {
+        //         build job: 'GitOps-CD', parameter: [string(name: DOCKERTAG, value: env.BUILD_NUMBER)]
+        //     }
+        // }
     }
     
 
