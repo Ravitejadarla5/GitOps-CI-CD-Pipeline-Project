@@ -61,7 +61,7 @@ pipeline{
         }
         stage ('Trivy-Scan Image'){
             steps {
-                sh "trivy image ${IMAGE_NAME}:latest > trivy-image-report.txt"
+                sh "trivy image ${IMAGE_NAME}:${IMAGE_TAG} > trivy-image-report.txt"
             }
         }
         stage ('Docker-Push') {
@@ -78,7 +78,7 @@ pipeline{
             steps {
                 script {
                     sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
-                    sh "docker image rmi ${IMAGE_NAME}:latest"
+                    // sh "docker image rmi ${IMAGE_NAME}:latest"
                 }
             }
         }
