@@ -7,7 +7,7 @@ pipeline{
     environment {
         SCANNER_HOME            = tool 'sonar-scanner'
         APP_NAME                = 'reddit-clone-app'
-        RELEASE                 = '1.0.0'
+        RELEASE                 = 'version'
         DOCKER_USER             = 'ravitejadarla5'
         DOCKER_PASS             = 'docker-token'
         IMAGE_NAME              = "${DOCKER_USER}" + "/" + "${APP_NAME}"
@@ -74,14 +74,14 @@ pipeline{
                 }
             }
         }
-        // stage ('Clean Artfacts') {
-        //     steps {
-        //         script {
-        //             sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
-        //             sh "docker image rmi ${IMAGE_NAME}:latest"
-        //         }
-        //     }
-        // }
+        stage ('Clean Artfacts') {
+            steps {
+                script {
+                    sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker image rmi ${IMAGE_NAME}:latest"
+                }
+            }
+        }
     }
     
 
