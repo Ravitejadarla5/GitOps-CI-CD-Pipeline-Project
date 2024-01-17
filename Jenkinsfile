@@ -64,24 +64,24 @@ pipeline{
                 sh "trivy image ${IMAGE_NAME}:latest > trivy-image-report.txt"
             }
         }
-        stage ('Docker-Push') {
-            steps {
-                script {
-                    docker.withRegistry('', DOCKER_PASS) {
-                        docker_image.push("${IMAGE_TAG}")
-                        docker_image.push('latest')
-                    }
-                }
-            }
-        }
-        stage ('Clean Artfacts') {
-            steps {
-                script {
-                    sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
-                    sh "docker image rmi ${IMAGE_NAME}:latest"
-                }
-            }
-        }
+        // stage ('Docker-Push') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry('', DOCKER_PASS) {
+        //                 docker_image.push("${IMAGE_TAG}")
+        //                 docker_image.push('latest')
+        //             }
+        //         }
+        //     }
+        // }
+        // stage ('Clean Artfacts') {
+        //     steps {
+        //         script {
+        //             sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+        //             sh "docker image rmi ${IMAGE_NAME}:latest"
+        //         }
+        //     }
+        // }
     }
     
 
