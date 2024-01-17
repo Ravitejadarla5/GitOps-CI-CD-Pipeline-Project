@@ -74,14 +74,14 @@ pipeline{
                 }
             }
         }
-        stage ('Clean Artfacts') {
-            steps {
-                script {
-                    sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
-                    sh "docker image rmi ${IMAGE_NAME}:latest"
-                }
-            }
-        }
+        // stage ('Clean Artfacts') {
+        //     steps {
+        //         script {
+        //             sh "docker image rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+        //             sh "docker image rmi ${IMAGE_NAME}:latest"
+        //         }
+        //     }
+        // }
     }
     
 
